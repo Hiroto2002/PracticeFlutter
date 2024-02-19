@@ -27,4 +27,31 @@ class TodoViewModel extends ChangeNotifier {
       print("Error fetching todos: $error");
     }
   }
+
+  Future<void> createTodo(Todo todo) async {
+    try {
+      await _repository.createTodo(todo);
+      fetchTodos(); // データの再取得
+    } catch (error) {
+      print("Error creating todo: $error");
+    }
+  }
+
+  Future<void> updateTodo(Todo todo) async {
+    try {
+      await _repository.updateTodo(todo);
+      fetchTodos(); // データの再取得
+    } catch (error) {
+      print("Error updating todo: $error");
+    }
+  }
+
+  Future<void> deleteTodoById(int id) async {
+    try {
+      await _repository.deleteTodoById(id);
+      fetchTodos(); // データの再取得
+    } catch (error) {
+      print("Error deleting todo: $error");
+    }
+  }
 }

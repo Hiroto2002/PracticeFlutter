@@ -8,5 +8,17 @@ class TodoRepository{
   Future<List<Todo>> fetchTodos() async{
     return apiClient.fetchTodos();
   }
+
+  Future<Todo> createTodo(Todo todo) async{
+    return apiClient.createTodo(todo);
+  }
+
+  Future<Todo> updateTodo(Todo todo) async{
+    return apiClient.updateTodo(todo);
+  }
+
+  Future<void> deleteTodoById(int id) async{
+    return apiClient.deleteTodoById(id);
+  }
 }
 
